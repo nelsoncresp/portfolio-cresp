@@ -1,0 +1,80 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Portafolio de Ingeniero de Sistemas Full Stack - Crespvs" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	<body class="bg-[#F5F5F0] text-stone-800 antialiased">
+		<div class="fixed inset-0 opacity-40 pointer-events-none z-0 mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/white-marble.png')]"></div>
+
+		<div class="relative z-10">
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--font-roman: 'Cinzel', serif;
+		--font-body: 'Lato', sans-serif;
+		--gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+	}
+
+	h1, h2, h3, h4, .roman-font {
+		font-family: var(--font-roman);
+	}
+
+	body {
+		font-family: var(--font-body);
+	}
+	.text-gold-metallic {
+		background: var(--gold-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		color: #B38728; /* Fallback */
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+	}
+	.stone-engraved {
+		background-color: #Fdfdfd;
+		box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05),
+                    inset -2px -2px 5px rgba(255,255,255,1),
+                    5px 5px 15px rgba(0,0,0,0.05);
+		border: 1px solid #e7e5e4;
+	}
+
+	/* Scrollbar Imperial */
+	::-webkit-scrollbar {
+		width: 12px;
+	}
+	::-webkit-scrollbar-track {
+		background: #EBEBE0;
+		border-left: 1px solid #d6d3d1;
+	}
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(to bottom, #8B0000, #5a0000);
+		border: 2px solid #EBEBE0;
+		border-radius: 2px;
+	}
+    .dark ::-webkit-scrollbar-track {
+		background: #1c1917;
+	}
+    .dark ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #b91c1c, #7f1d1d);
+        border: 2px solid #1c1917;
+    }
+</style>

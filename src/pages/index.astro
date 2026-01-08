@@ -1,0 +1,308 @@
+---
+import Layout from './layouts/layout.astro';
+import Navbar from '../components/Navbar.astro';
+import RomanDivider from '../components/RomanDivider.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+import soldierImage from '../assets/soldier.png';
+
+const techStack = [
+    { name: "Angular", icon: "mdi:angular" },
+    { name: ".NET / C#", icon: "mdi:dot-net" },
+    { name: "MySQL", icon: "mdi:database" },
+    { name: "TypeScript", icon: "mdi:language-typescript" },
+    { name: "Tailwind", icon: "mdi:tailwind" },
+    { name: "Python", icon: "mdi:language-python" },
+];
+
+const studies = [
+    {
+        institution: "INGENIERÍA DE SISTEMAS",
+        place: "Universidad (VIII Semestre)",
+        desc: "Formación superior en lógica, algoritmos y arquitectura de software. Actualmente cursando el 8º ciclo.",
+        icon: "mdi:school",
+        year: "En curso"
+    },
+    {
+        institution: "ORACLE NEXT EDUCATION",
+        place: "Alura Latam - Backend F2 T5",
+        desc: "Especialización intensiva en desarrollo Backend con Java y Spring Boot, bases de datos y desarrollo personal.",
+        icon: "mdi:code-braces",
+        year: "2024"
+    },
+    {
+        institution: "FORMACIÓN TÉCNICA",
+        place: "SENA",
+        desc: "COMPLEMENTARIA VIRTUAL EN CONTROLES Y SEGURIDAD INFORMATICA",
+        icon: "mdi:certificate",
+        year: "2023"
+    }
+];
+
+const projects = [
+    {
+        title: "SISTEMA VESTALIS",
+        subtitle: "Gestión Empresarial",
+        desc: "Plataforma robusta forjada en Angular 17 y .NET 8 Web API. Orquesta usuarios y reportes como un general romano.",
+        tags: ["Angular", "C# .NET", "MySQL"],
+        github: "#",
+        link: "#"
+    },
+    {
+        title: "MERCADO FORUM",
+        subtitle: "API E-commerce",
+        desc: "Arquitectura limpia digna del Panteón. Patrón Repository, Unit of Work y documentación Swagger.",
+        tags: [".NET API", "Docker", "JWT"],
+        github: "#",
+        link: "#"
+    }
+];
+---
+<Layout title="CRESPVS | Desarrollador Junior">
+
+    <nav class="fixed w-full z-50 bg-stone-50/90 dark:bg-[#0c0a09]/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 py-4 transition-colors duration-300">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-widest text-stone-900 dark:text-stone-100 hover:text-[#C5A059] transition-colors">
+                CRESPVS
+            </a>
+
+            <div class="flex items-center gap-6">
+                <ul class="hidden md:flex gap-8 text-sm font-semibold tracking-wide uppercase text-stone-600 dark:text-stone-400">
+                    <li><a href="#perfil" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Perfil</a></li>
+                    <li><a href="#estudios" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Estudios</a></li>
+                    <li><a href="#proyectos" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Obras</a></li>
+                </ul>
+
+                <div class="border-l border-stone-300 dark:border-stone-700 pl-6">
+                    <ThemeToggle />
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="overflow-hidden">
+
+        <section id="perfil" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 relative overflow-hidden transition-colors duration-500 bg-stone-50 dark:bg-[#0c0a09]">
+
+            <div data-aos="fade-in" data-aos-duration="1500" class="absolute top-24 left-6 w-12 h-12 border-t-2 border-l-2 border-[#C5A059] opacity-50"></div>
+            <div data-aos="fade-in" data-aos-duration="1500" class="absolute bottom-12 right-6 w-12 h-12 border-b-2 border-r-2 border-[#C5A059] opacity-50"></div>
+
+            <div class="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 relative z-10">
+
+                <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
+                    <span data-aos="fade-down" class="text-stone-500 dark:text-stone-400 font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 md:mb-6 block">
+                        Dev Trainee • VIII Legión (Semestre)
+                    </span>
+
+                    <h1 data-aos="fade-up" data-aos-delay="100" class="text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tighter text-stone-900 dark:text-stone-100 leading-none">
+                        <span class="text-stone-800 dark:text-white">CRES</span><span class="text-gold-metallic">PVS</span>
+                    </h1>
+
+                    <div data-aos="zoom-in" data-aos-delay="200" class="h-1 w-24 md:w-32 bg-[#8B0000] mb-6 md:mb-8 rounded-full shadow-lg shadow-red-900/20"></div>
+
+                    <p data-aos="fade-up" data-aos-delay="300" class="text-lg md:text-xl text-stone-600 dark:text-stone-300 max-w-lg mb-8 md:mb-10 font-light leading-relaxed">
+                        Desarrollador en ascenso. Construyendo el futuro con <strong class="text-[#8B0000] dark:text-[#ff4d4d]">.NET</strong> y <strong class="text-[#8B0000] dark:text-[#ff4d4d]">Angular</strong>. Disciplina romana aplicada al código moderno.
+                    </p>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="flex gap-4 md:gap-6 flex-wrap justify-center md:justify-start">
+                        <a href="#proyectos" class="group relative px-6 md:px-8 py-3 bg-[#8B0000] text-stone-100 font-roman font-bold tracking-widest overflow-hidden shadow-lg hover:shadow-[#8B0000]/40 transition-all hover:-translate-y-1 text-sm md:text-base">
+                            <span class="relative z-10">VER OBRAS</span>
+                            <div class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:bg-[#600000]"></div>
+                        </a>
+
+                        <a href="#" class="px-6 md:px-8 py-3 border border-stone-400 dark:border-stone-600 text-stone-600 dark:text-stone-400 font-roman font-bold tracking-widest hover:border-[#C5A059] hover:text-[#C5A059] transition-colors text-sm md:text-base">
+                            GITHUB
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex justify-center relative mt-8 md:mt-0">
+                    <div data-aos="zoom-in" data-aos-duration="1500" class="absolute w-[280px] h-[280px] md:w-[450px] md:h-[450px] rounded-full border border-[#C5A059]/20 dark:border-[#C5A059]/10 animate-[spin_20s_linear_infinite]"></div>
+
+                    <div data-aos="fade-left" data-aos-duration="1000" class="relative z-10 animate-float">
+                        <Image
+                            src={soldierImage}
+                            alt="Estatua de Soldado Romano"
+                            class="w-[260px] md:w-[400px] lg:w-[450px] h-auto object-contain filter drop-shadow-2xl dark:drop-shadow-[0_0_25px_rgba(197,160,89,0.15)] mask-gradient"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <RomanDivider />
+
+        <section id="tecnologias" class="py-24 bg-stone-50 dark:bg-[#0c0a09] transition-colors duration-500">
+            <div class="container mx-auto px-6 text-center">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-200 mb-12 tracking-widest">
+                    ARSENAL TÉCNICO
+                </h2>
+
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                    {techStack.map((tech, index) => (
+                        <div
+                            data-aos="zoom-in-up"
+                            data-aos-delay={index * 100}
+                            class="group flex flex-col items-center gap-4 transition-transform hover:-translate-y-2 duration-300"
+                        >
+                            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-[#d6d3d1] to-[#a8a29e] dark:from-[#292524] dark:to-[#1c1917] p-[1px] shadow-lg group-hover:shadow-xl group-hover:shadow-[#C5A059]/20">
+                                <div class="w-full h-full rounded-full bg-stone-100 dark:bg-[#1c1917] flex items-center justify-center border-2 border-stone-300 dark:border-stone-700 group-hover:border-[#C5A059] transition-colors relative overflow-hidden">
+                                    <Icon name={tech.icon} class="w-8 h-8 md:w-10 md:h-10 text-stone-500 dark:text-stone-500 group-hover:text-[#B38728] transition-colors" />
+                                </div>
+                            </div>
+                            <span class="font-roman font-bold text-stone-500 dark:text-stone-400 tracking-wider text-xs md:text-sm group-hover:text-[#C5A059] transition-colors">{tech.name}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <RomanDivider />
+
+        <section id="estudios" class="py-20 bg-stone-50 dark:bg-[#0c0a09] transition-colors duration-500">
+            <div class="container max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 data-aos="fade-up" class="text-4xl font-bold text-stone-800 dark:text-stone-200 tracking-widest mb-4">CVRRICVLVM</h2>
+                    <p data-aos="fade-up" data-aos-delay="100" class="text-stone-500 dark:text-stone-400 italic">"Discipulus est prior magistri"</p>
+                </div>
+
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-stone-300 before:dark:via-stone-700 before:to-transparent">
+                    {studies.map((study, index) => (
+                        <div
+                            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                        >
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-stone-100 dark:border-[#0c0a09] bg-[#C5A059] text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow shadow-[#C5A059]/50 z-10">
+                                <Icon name={study.icon} class="w-5 h-5" />
+                            </div>
+
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-[#1c1917] p-6 rounded-lg border border-stone-200 dark:border-stone-800 shadow-sm hover:border-[#C5A059] transition-all">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                                    <h3 class="font-bold text-stone-800 dark:text-stone-200 text-lg tracking-wide">{study.institution}</h3>
+                                    <span class="text-xs font-bold bg-[#EBEBE0] dark:bg-stone-800 text-stone-600 dark:text-stone-400 px-2 py-1 rounded border border-stone-300 dark:border-stone-700 uppercase tracking-wider">
+                                        {study.year}
+                                    </span>
+                                </div>
+                                <p class="text-[#8B0000] dark:text-[#C5A059] font-bold text-xs uppercase tracking-widest mb-3">{study.place}</p>
+                                <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+                                    {study.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <RomanDivider />
+
+        <section id="proyectos" class="py-24 bg-stone-100/50 dark:bg-[#151210] transition-colors duration-500">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-stone-800 dark:text-stone-200 tracking-widest mb-4">MAGNA OPERA</h2>
+                    <p data-aos="fade-up" data-aos-delay="100" class="text-stone-500 dark:text-stone-400 italic">"Facta non verba"</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    {projects.map((project, index) => (
+                        <article
+                            data-aos="fade-up"
+                            data-aos-delay={index * 150}
+                            class="stone-engraved dark:bg-[#1c1917] dark:border-stone-800 p-8 relative group hover:border-[#C5A059]/50 transition-all duration-500"
+                        >
+                            <div class="absolute top-2 left-2 w-3 h-3 border-t border-l border-stone-300 dark:border-stone-700 group-hover:border-[#C5A059]"></div>
+                            <div class="absolute top-2 right-2 w-3 h-3 border-t border-r border-stone-300 dark:border-stone-700 group-hover:border-[#C5A059]"></div>
+                            <div class="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-stone-300 dark:border-stone-700 group-hover:border-[#C5A059]"></div>
+                            <div class="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-stone-300 dark:border-stone-700 group-hover:border-[#C5A059]"></div>
+
+                            <div class="mb-6 border-b border-stone-200 dark:border-stone-800 pb-4">
+                                <h3 class="text-3xl font-bold text-stone-800 dark:text-stone-200 group-hover:text-[#C5A059] transition-colors">{project.title}</h3>
+                                <p class="text-[#8B0000] dark:text-[#ff4d4d] font-bold text-xs tracking-[0.2em] uppercase mt-2">{project.subtitle}</p>
+                            </div>
+
+                            <p class="text-stone-600 dark:text-stone-400 mb-8 leading-relaxed font-light">
+                                {project.desc}
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                {project.tags.map(tag => (
+                                    <span class="px-3 py-1 bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-bold uppercase tracking-wider border border-stone-300 dark:border-stone-700">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div class="flex gap-4">
+                                <a href={project.github} class="flex-1 text-center py-2 border border-stone-400 dark:border-stone-600 text-stone-600 dark:text-stone-400 font-bold hover:bg-stone-800 hover:text-[#C5A059] transition-colors uppercase text-sm tracking-widest">
+                                    Repositorium
+                                </a>
+                                <a href={project.link} class="flex-1 text-center py-2 bg-[#8B0000] text-stone-100 font-bold hover:bg-[#600000] transition-colors uppercase text-sm tracking-widest shadow-md">
+                                    Visitus
+                                </a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <footer data-aos="fade-in" class="bg-[#1c1917] text-[#C5A059] py-12 text-center border-t-4 border-[#8B0000] relative">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-roman mb-4 text-white">CRESPVS</h2>
+                <div class="flex justify-center gap-6 mb-8 text-stone-500 text-sm tracking-widest uppercase">
+                    <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Email</a>
+                </div>
+                <p class="text-xs text-stone-600">MMXXIV &copy; HECHO CON ASTRO & TAILWIND</p>
+            </div>
+        </footer>
+    </main>
+</Layout>
+
+<style>
+@keyframes glitch-anim {
+  0% { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 1px); }
+  20% { clip-path: inset(80% 0 1% 0); transform: translate(2px, -1px); }
+  40% { clip-path: inset(30% 0 10% 0); transform: translate(-2px, 2px); }
+  60% { clip-path: inset(10% 0 50% 0); transform: translate(2px, -2px); }
+  80% { clip-path: inset(40% 0 20% 0); transform: translate(-1px, 1px); }
+  100% { clip-path: inset(5% 0 60% 0); transform: translate(1px, -1px); }
+}
+
+.tech-glitch {
+    position: relative;
+}
+
+.tech-glitch:hover::before,
+.tech-glitch:hover::after {
+    content: attr(alt);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.tech-glitch:hover::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+    background: rgba(255, 255, 255, 0.1);
+    mix-blend-mode: overlay;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); } /* Sube 20px */
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+</style>

@@ -1,0 +1,22 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+<nav class="fixed w-full z-50 bg-stone-50/90 dark:bg-[#0c0a09]/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 py-4 transition-colors duration-300 shadow-sm">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold tracking-widest text-stone-900 dark:text-stone-100 hover:text-[#C5A059] transition-colors">
+            CRESPVS
+        </a>
+
+        <div class="flex items-center gap-6">
+            <ul class="hidden md:flex gap-8 text-sm font-semibold tracking-wide uppercase text-stone-600 dark:text-stone-400">
+                <li><a href="#perfil" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Perfil</a></li>
+                <li><a href="#estudios" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Estudios</a></li>
+                <li><a href="#proyectos" class="hover:text-[#8B0000] dark:hover:text-[#ff4d4d] transition-colors">Obras</a></li>
+            </ul>
+
+            <div class="border-l border-stone-300 dark:border-stone-700 pl-6">
+                <ThemeToggle />
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,15 @@
+# Dependencias (Nunca subir)
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+
+# Producción (Nunca subir)
+dist/
+.vercel/
+
+# Astro
+.astro/
+
+# Variables de entorno
+.env
+.env.*
